@@ -7,6 +7,7 @@ var selectedCalendar = "Next 5 Falcon Launches";
 var launchReport;
 var calendars = document.querySelectorAll("ul li");
 var httpRequest = new XMLHttpRequest();
+var countdown;
 
 function getLaunches(evt) {
    if (evt.type !== "load") {
@@ -48,6 +49,38 @@ function aFunction(){
         }
         console.log(calendars.length);
     }
+}
+
+function updateCountdown() {
+    var dateToday = new Date();
+    var dateFrom = Date.UTC(dateToday.getFullYear(), 
+        dateToday.getMonth(), dateToday.getDate(),
+        dateToday.getHours(), dateToday.getMinutes(),
+        dateToday.getSeconds());
+    var dateTo = Date.UTC(dateObject.getFullYear(),
+        dateObject.getMonth(), dateObject.getDate(),
+        19, 0, 0);
+    var daysUntil = Math.floor((dateTo - dateFrom)/86400000);
+    document.getElementById("countdown").innerHTML = daysUntil;
+    var fractionalDay = (dateTo- dateFrom) % 86400000;
+    var hoursUntil = Math.floor(fractionalDay/3600000);
+    if (hoursUntil <10) {
+        hoursUntil= "0" + hoursUntil;
+    }
+    document.getElementById("countdown").innerHTML += ":" + hoursUntil;
+    var fractionalHour = fractionalDay % 3600000;
+    var minutesUntil = Math.floor(fractionalHour / 60000);
+    if (minutesUntil < 10) {
+        minutesUntil = "0" + minutesUntil;
+    }
+    document.getElementById("countdown").innerHTML +=
+    ":" + minutesUntil;
+    var fractionalMinute = fractionalHour % 60000;
+    var secondsUntil = Math.floor(fractionalMinute / 1000);
+    if (secondsUntil < 10) {
+        secondsUntil = "0" + secondsUntil; 
+    }
+    document.getElementById("countdown").innerHTML += ":" + secondsUntil;
 }
 
 for (var i = 0; i < calendars.length; i++) {
