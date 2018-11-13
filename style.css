@@ -2,6 +2,7 @@
   text-align: center;
   margin: 20%;
   padding: 25px;
+  border: 1px solid;
   background-color: white;
 }
 li{
@@ -12,4 +13,20 @@ html{
   background-image: url('background.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+h1{
+  text-decoration: underline;
+}
+ul li{
+  list-style: none;
+  border: 2px inset black;
+  text-align: center;
+  margin: 3%;
+  padding: 1px;
+  box-shadow: 2px 5px 4px 5px #888888;
+  background-color: #f2f2f2;
+}
+ul li:hover{
+  font-size: 150%;
+  cursor: pointer;
 }
