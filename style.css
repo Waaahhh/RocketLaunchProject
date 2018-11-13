@@ -1,0 +1,15 @@
+.container{
+  text-align: center;
+  margin: 20%;
+  padding: 25px;
+  background-color: white;
+}
+li{
+  text-align: left;
+  line-height: 200%;
+}
+html{
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
