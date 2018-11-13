@@ -5,7 +5,7 @@
 */
 var selectedCalendar = "Next 5 Falcon Launches";
 var launchReport;
-
+var calendars = document.querySelectorAll("ul li");
 var httpRequest = new XMLHttpRequest();
 
 function getLaunches(evt) {
@@ -46,10 +46,10 @@ function aFunction(){
         for (i=0; i < jsObject.launches.length; i++) {
             document.getElementById(i).innerHTML = jsObject.launches[i].net +": " + jsObject.launches[i].name;
         }
+        console.log(calendars.length);
     }
 }
 
-var calendars = document.querySelectorAll("section ul li");
 for (var i = 0; i < calendars.length; i++) {
    if (calendars[i].addEventListener) {
       calendars[i].addEventListener("click", getLaunches, false);
