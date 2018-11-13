@@ -40,9 +40,12 @@ function aFunction(){
     {
         var launchReport = httpRequest.responseText;
         var jsObject = JSON.parse(launchReport);
-        //for (i=0; i < jsObject.launch.length; i++) {
-//
-        //}
+        console.log(jsObject);
+        console.log(jsObject.launches);
+        console.log(jsObject.launches.length);
+        for (i=0; i < jsObject.launches.length; i++) {
+            document.getElementById(i).innerHTML = jsObject.launches[i].net +": " + jsObject.launches[i].name;
+        }
     }
 }
 
