@@ -8,6 +8,9 @@ var launchReport;
 var calendars = document.querySelectorAll("ul li");
 var httpRequest = new XMLHttpRequest();
 var countdown;
+var dateObject = new Date();
+
+var countdown= setInterval(updateCountdown(), 1000);
 
 function getLaunches(evt) {
    if (evt.type !== "load") {
@@ -42,12 +45,11 @@ function aFunction(){
         var launchReport = httpRequest.responseText;
         var jsObject = JSON.parse(launchReport);
         console.log(jsObject);
-        console.log(jsObject.launches);
-        console.log(jsObject.launches.length);
         for (i=0; i < jsObject.launches.length; i++) {
             document.getElementById(i).innerHTML = jsObject.launches[i].net +": " + jsObject.launches[i].name;
         }
-        console.log(calendars.length);
+        dateObject = jsObject.launches[0].net;
+        console.log(dateObject);
     }
 }
 
